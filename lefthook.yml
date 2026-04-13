@@ -1,0 +1,14 @@
+# Refer for explanation to following link:
+# https://lefthook.dev/configuration/
+pre-commit:
+  parallel: true
+  jobs:
+    - run: git secrets --pre_commit_hook
+    - run: gitleaks protect --staged -v
+    - run: ghalint run
+    - run: actionlint
+    - run: zizmor -p .
+
+commit-msg:
+  jobs:
+    - run: npx --no -- commitlint --edit "$1"

@@ -1,0 +1,19 @@
+name: actions-lints
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/*.yml"
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  actions-lints:
+    name: actions-lints
+    permissions:
+      contents: read
+    uses: yaizuuuu/shared-workflows/.github/workflows/actions-lints.yml@da337b2d304e185cababd14ff615135bb645a4ed # v0.0.3
