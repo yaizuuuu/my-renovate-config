@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   renovate:
-    name: secret-scan
+    name: renovate
     runs-on: ubuntu-latest
     timeout-minutes: 30
     environment: renovate
@@ -19,9 +19,17 @@ jobs:
       contents: write # to renovate
       pull-requests: write # to renovate
     steps:
+      - uses: actions/create-github-app-token@d72941d797fd3113feb6b93fd0dec494b13a2547 # v1.12.0
+        id: generate-token
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          permission-contents: write
+          permission-pull-requests: write
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
       - uses: renovatebot/github-action@eb932558ad942cccfd8211cf535f17ff183a9f74 # v46.1.9
         with:
-          token: ${{ secrets.RENOVATE_TOKEN }}
+          token: ${{ steps.generate-token.outputs.token }}

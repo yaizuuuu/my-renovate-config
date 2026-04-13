@@ -1,0 +1,6 @@
+excludes:
+  # renovate は org 全体を対象とするため repositories の制限を意図的に除外
+  - policy_name: github_app_should_limit_repositories
+    workflow_file_path: .github/workflows/renovate.yml
+    job_name: renovate
+    step_id: generate-token
