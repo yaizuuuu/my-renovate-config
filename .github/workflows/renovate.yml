@@ -25,8 +25,16 @@ jobs:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
+          # ref: https://docs.renovatebot.com/security-and-permissions/#global-permissions
+          permission-vulnerability-alerts: read
+          permission-administration: read
+          permission-metadata: read
+          permission-checks: write
           permission-contents: write
+          permission-statuses: write
+          permission-issues: write
           permission-pull-requests: write
+          permission-workflows: write
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
