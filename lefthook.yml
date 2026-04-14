@@ -8,6 +8,9 @@ pre-commit:
     - run: ghalint run
     - run: actionlint
     - run: zizmor -p .
+    - run: npm run test
+    - run: npm run test default.json
+    - run: npm run test renovate-config.json
 
 commit-msg:
   jobs:

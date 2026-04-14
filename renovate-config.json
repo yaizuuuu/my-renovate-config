@@ -1,6 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-global-schema.json",
+  "platform": "github",
+  "onboarding": true,
   "autodiscover": true,
   "forkProcessing": "enabled",
+  "requireConfig": "optional",
   "extends": ["github>yaizuuuu/my-renovate-config"]
 }

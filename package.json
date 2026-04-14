@@ -6,6 +6,7 @@
     "lefthook": "2.1.5"
   },
   "scripts": {
-    "prepare": "lefthook install"
+    "prepare": "lefthook install",
+    "test": "renovate-config-validator"
   }
 }
