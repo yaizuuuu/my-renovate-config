@@ -2,17 +2,5 @@
   "$schema": "https://docs.renovatebot.com/renovate-global-schema.json",
   "autodiscover": true,
   "forkProcessing": "enabled",
-  "automerge": false,
-  "timezone": "Asia/Tokyo",
-  "extends": [
-    "config:best-practices",
-    ":disableRateLimiting"
-  ],
-    "packageRules": [
-    {
-      "matchPackageNames": ["*"],
-      "minimumReleaseAge": "14 days"
-    }
-  ],
-  "addLabels": ["renovate"]
+  "extends": ["github>yaizuuuu/my-renovate-config"]
 }

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "automerge": false,
+  "minimumReleaseAge": "7 days",
+  "extends": [
+    "config:best-practices",
+    ":disableRateLimiting",
+    ":timezone(Asia/Tokyo)",
+    ":labels(renovate, dependencies)",
+    ":enableVulnerabilityAlertsWithLabel(security)"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["yaizuuuu/shared-workflows"],
+      "minimumReleaseAge": null
+    }
+  ]
+}
