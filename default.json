@@ -10,6 +10,17 @@
     ":enableVulnerabilityAlertsWithLabel(security)",
     ":semanticCommits"
   ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update _VERSION variables",
+      "managerFilePatterns": ["/.*y[a]?ml$/", "/.*sh$/"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>[a-z-]+?))?\\s.+?_(VERSION|VER|version|ver)(=| = |: )(?<currentValue>.+?)\\s",
+        "# renovate: datasource=(?<datasource>[a-z-]+?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>[a-z-]+?))?\\s.+?_(VERSION|VER|version|ver)(=| = |: )\"(?<currentValue>.+?)\"\\s"
+      ]
+    }
+  ],
   "packageRules": [
     {
       "matchPackageNames": ["yaizuuuu/shared-workflows"],
