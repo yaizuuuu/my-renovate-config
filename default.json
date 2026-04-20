@@ -18,9 +18,24 @@
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-z-]+?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>[a-z-]+?))?\\s*(.+?_)?(VERSION|VER|version|ver)(=| = |: )\"?(?<currentValue>.+?)\"?\\s"
       ]
+    },
+    {
+      "customType": "regex",
+      "description": "Update biome.json",
+      "managerFilePatterns": ["/^biome.json$/"],
+      "matchStrings": [
+        "https://biomejs.dev/schemas/(?<currentValue>.+?)/schema.json"
+      ],
+      "datasourceTemplate": "npm",
+      "packageNameTemplate": "@biomejs/biome"
     }
   ],
   "packageRules": [
+    {
+      "groupName": "biome packages",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["@biomejs/biome"]
+    },
     {
       "matchPackageNames": ["yaizuuuu/shared-workflows"],
       "minimumReleaseAge": null
