@@ -3,7 +3,7 @@
   "devDependencies": {
     "@commitlint/cli": "20.5.3",
     "@commitlint/config-conventional": "20.5.3",
-    "lefthook": "2.1.6"
+    "lefthook": "2.1.9"
   },
   "scripts": {
     "prepare": "lefthook install",
